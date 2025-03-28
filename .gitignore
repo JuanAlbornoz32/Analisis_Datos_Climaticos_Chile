@@ -1,0 +1,14 @@
+# Ignorar el entorno virtual
+env_medioambiente/
+
+# Ignorar archivos de configuración de Python
+__pycache__/
+*.pyc
+*.pyo
+*.log
+
+# Ignorar los datos extraídos (opcional, si no quieres subirlos)
+datos/
+
+# Ignorar archivos temporales y de sistema
+Thumbs.db  
