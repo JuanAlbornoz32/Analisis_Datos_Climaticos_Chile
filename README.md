@@ -43,16 +43,23 @@ ________________________________________
 •	🌡️ Temperatura media
 •	🌧️ Precipitación acumulada
 ✅ Atributos de la capa "comunas"
+
 •	Nombre de la comuna
+
 •	Provincia a la que pertenece
+
 •	Región a la que pertenece
 ________________________________________
 🛠️ Herramientas Utilizadas
+
 •	Lenguaje: Python
+
 •	Librerías: requests, pandas
+
 •	Instalación de dependencias: pip install -r requirements.txt
 ________________________________________
 🔜 Próximo Paso
+
 La siguiente etapa del proyecto se centrará en la limpieza y transformación de los datos, preparando la información para su posterior almacenamiento en una base de datos.
 ________________________________________
 ✨ Autor
