@@ -1,91 +1,88 @@
-📌 Proyecto Datos Climáticos de Chile
+# 📌 **Proyecto Datos Climáticos de Chile**
 
-🌍 Descripción General
+
+## 🌍 Descripción General
 
 Este proyecto tiene como objetivo la extracción, limpieza, análisis y visualización de datos climáticos de Chile, los cuales serán obtenidos desde la API Arclim del Ministerio del Medio Ambiente de Chile.
 
 La API permite acceder a datos de diferentes indicadores climáticos como temperaturas medias, precipitaciones acumuladas, olas de calor, entre otros, los cuales han sido calculados a partir de distintas simulaciones climáticas. Esta información puede ser desagregada para diferentes capas geográficas (comunas, regiones, caletas, áreas protegidas, etc.), y distintas entidades de cada una de estas capas.
 
-📝 Documentación de la API: Arclim API
+**📝 Documentación de la API:** [Arclim API](#)
 
-🏷️ Etapas del Proyecto
+---
 
-1️⃣ Extracción de Datos (Etapa actual) ✅
-2️⃣ Limpieza y Transformación de los Datos
-3️⃣ Migración a una Base de Datos
-4️⃣ Análisis Estadístico y Modelado
-5️⃣ Creación de un Visualizador de Datos
+## 🏷️ Etapas del Proyecto
 
-💾 1. Extracción de Datos (Etapa Actual)
+1️⃣ **Extracción de Datos (Etapa actual) ✅**  
+2️⃣ **Limpieza y Transformación de los Datos**  
+3️⃣ **Migración a una Base de Datos**  
+4️⃣ **Análisis Estadístico y Modelado**  
+5️⃣ **Creación de un Visualizador de Datos**  
 
-La API permite realizar consultas para series climáticas que van de 1970 hasta 2070, para localidades específicas, por lo que se optó por este tipo de consultas para extraer información de dos indicadores climáticos, para las distintas comunas de Chile.
+---
 
-✅ Temperatura media
-✅ Precipitación acumulada
+## 💾 1. Extracción de Datos (Etapa Actual)
 
-Para automatizar este proceso, se estructuró una serie de scripts en Python que facilitan las consultas a la API, la conversión de los datos a DataFrames de Pandas y su exportación a archivos CSV.
+La API permite realizar consultas para series climáticas que van de **1970 hasta 2070**, para localidades específicas, por lo que se optó por este tipo de consultas para extraer información de dos indicadores climáticos, para las distintas comunas de Chile.
 
-📚 Estructura de la Extracción
+✅ **Temperatura media**  
+✅ **Precipitación acumulada**  
 
-🔹 Scripts Principales
+Para automatizar este proceso, se estructuró una serie de scripts en **Python** que facilitan las consultas a la API, la conversión de los datos a **DataFrames de Pandas** y su exportación a archivos **CSV**.
 
-📌 codigos.py
+### 📚 Estructura de la Extracción
 
-Descarga los códigos de las capas geográficas y los indicadores climáticos disponibles, los cuales son necesarios para estructurar las consultas.
+#### 🔹 Scripts Principales
 
-Obtiene los atributos y entidades de la capa "comunas".
+**📌 codigos.py**  
+- Descarga los códigos de las capas geográficas y los indicadores climáticos disponibles, los cuales son necesarios para estructurar las consultas.  
+- Obtiene los atributos y entidades de la capa "comunas".  
 
-📌 funciones_extraccion.py
+**📌 funciones_extraccion.py**  
+- Contiene dos funciones para realizar consultas a la API y obtener datos climáticos de una entidad de alguna capa geográfica especificada, para un periodo de tiempo (año, estación, meses).  
+- Las funciones retornan diccionarios con los metadatos de la consulta y un archivo JSON con su información.  
 
-Contiene dos funciones para realizar consultas a la API y obtener datos climáticos de una entidad de alguna capa geográfica especificada, para un periodo de tiempo (año, estación, meses).
+**📌 convertir_a_df.py**  
+- Convierte los datos extraídos por las funciones de extracción en **DataFrames de Pandas** y los exporta a archivos **CSV**.  
 
-Las funciones retornan diccionarios con los metadatos de la consulta y un archivo JSON con su información.
+**📌 consultas.py**  
+- Ejecuta la extracción de datos específicos: temperatura media y precipitación acumulada para las distintas comunas de Chile.  
 
-📌 convertir_a_df.py
+---
 
-Convierte los datos extraídos por las funciones de extracción en DataFrames de Pandas y los exporta a archivos CSV.
+## 📊 Datos Extraídos
 
-📌 consultas.py
+✅ **Códigos de referencia**  
+- Listado de códigos de capas geográficas e indicadores climáticos disponibles.  
 
-Ejecuta la extracción de datos específicos: temperatura media y precipitación acumulada para las distintas comunas de Chile.
+✅ **Datos por comuna (desagregados por mes y año)**  
+- 🌡️ **Temperatura media**  
+- 🌧️ **Precipitación acumulada**  
 
-📊 Datos Extraídos
+✅ **Atributos de la capa "comunas"**  
+- Nombre de la comuna  
+- Provincia a la que pertenece  
+- Región a la que pertenece  
 
-✅ Códigos de referencia
+---
 
-Listado de códigos de capas geográficas e indicadores climáticos disponibles.
+## 🛠️ Herramientas Utilizadas
 
-✅ Datos por comuna (desagregados por mes y año)
+- **Lenguaje:** Python  
+- **Librerías:** requests, pandas  
+- **Instalación de dependencias:**  
 
-🌡️ Temperatura media
-
-🌧️ Precipitación acumulada
-
-✅ Atributos de la capa "comunas"
-
-Nombre de la comuna
-
-Provincia a la que pertenece
-
-Región a la que pertenece
-
-🛠️ Herramientas Utilizadas
-
-Lenguaje: Python
-
-Librerías: requests, pandas
-
-Instalación de dependencias:
-
+```bash
 pip install -r requirements.txt
+```
 
-🔜 Próximo Paso
+## 🔜 Próximo Paso
 
 La siguiente etapa del proyecto se centrará en la limpieza y transformación de los datos, preparando la información para su posterior almacenamiento en una base de datos.
 
-✨ Autor
+## ✨ Autor
 
-📌 Juan Albornoz
+📌 [Juan Albornoz](https://www.linkedin.com/in/juan-albornoz-carrillo/)
 
 🚀 ¡Si tienes comentarios o sugerencias, no dudes en contribuir o abrir una issue!
 
