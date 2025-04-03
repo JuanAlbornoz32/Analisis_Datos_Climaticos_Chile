@@ -1,70 +1,83 @@
-# 📌 **Proyecto Datos Climáticos de Chile**
+# 📌 **Análisis de Tendencias Climáticas en Chile**
 
 
 ## 🌍 Descripción General
 
-Este proyecto tiene como objetivo la extracción, limpieza, análisis y visualización de datos climáticos de Chile, los cuales serán obtenidos desde la API Arclim del Ministerio del Medio Ambiente de Chile.
+Este proyecto tiene como objetivo analizar **tendencias climáticas** en las distintas zonas geográficas de Chile. Para ello, se implementará un proceso **ETL** que iniciará con la extracción de datos climáticos desde la **API Arclim** del Ministerio del Medio Ambiente de Chile, desde donde se recopilarán medidas de diversos **indicadores climáticos** a nivel nacional, desagregados por distintas **capas geográficas**.
 
-La API permite acceder a datos de diferentes indicadores climáticos como temperaturas medias, precipitaciones acumuladas, olas de calor, entre otros, los cuales han sido calculados a partir de distintas simulaciones climáticas. Esta información puede ser desagregada para diferentes capas geográficas (comunas, regiones, caletas, áreas protegidas, etc.), y distintas entidades de cada una de estas capas.
+Los datos proporcionados por **Arclim** se generan a partir de **simulaciones climáticas** basadas en modelos GCM (Modelos de Circulación General). Esto permite obtener tanto **proyecciones futuras** como reconstrucciones de **medidas históricas** para diversos indicadores climáticos con base en estos modelos.
 
-**📝 Documentación de la API:** [Arclim API](#)
-
----
+Tras la **extracción, limpieza y transformación** de los datos, se procederá a realizar un **análisis exploratorio y estadístico** para identificar patrones y variaciones en los indicadores climáticos a lo largo del tiempo. Finalmente, se creará un **visualizador de datos** dentro de una app, que permita explorar la información de manera interactiva.
 
 ## 🏷️ Etapas del Proyecto
 
 1️⃣ **Extracción de Datos (Etapa actual) ✅**  
-2️⃣ **Limpieza y Transformación de los Datos**  
-3️⃣ **Migración a una Base de Datos**  
-4️⃣ **Análisis Estadístico y Modelado**  
+
+  •	Obtención de datos climáticos desde la **API Arclim**.
+
+  •	Conversión de datos a formatos estructurados (**CSV, DataFrames**).
+
+2️⃣ **Limpieza y Transformación de los Datos** 
+
+•	Eliminación de **inconsistencias** y **valores faltantes**.
+
+•	**Estandarización y estructuración** de los datos para su análisis.
+
+3️⃣ **Almacenamiento en Base de Datos**  
+•	Diseño e implementación de una **base de datos** para almacenar y gestionar los datos transformados.
+
+•	Carga eficiente de los datos en el sistema de almacenamiento.
+
+4️⃣ **Análisis exploratorio y Modelado**  
+
+•	Identificación de **patrones y tendencias climáticas** a lo largo del tiempo.
+
+•	Aplicación de **análisis estadísticos y visualización** de distribuciones.
+
 5️⃣ **Creación de un Visualizador de Datos**  
 
----
+•	Creación de una **aplicación** para explorar los datos de manera dinámica.
+
+•	Implementación de **gráficos y filtros** para el análisis visual.
+
 
 ## 💾 1. Extracción de Datos (Etapa Actual)
 
-La API permite realizar consultas para series climáticas que van de **1970 hasta 2070**, para localidades específicas, por lo que se optó por este tipo de consultas para extraer información de dos indicadores climáticos, para las distintas comunas de Chile.
+La API Arclim permite acceder a **series de tiempo (1970-2070)** de diversos indicadores climáticos, como temperatura media, precipitación acumulada y olas de calor, entre otros. Estos datos están desagregados por distintas **capas geográficas** (comunas, regiones, caletas, áreas protegidas, etc.) y las **entidades** que conforman cada una de ellas.
 
-✅ **Temperatura media**  
-✅ **Precipitación acumulada**  
+Para **automatizar** el proceso de extracción, se desarrolló un conjunto de **scripts en Python** que facilitan la consulta de datos en la API, su conversión a DataFrames y su exportación a archivos CSV.
 
-Para automatizar este proceso, se estructuró una serie de scripts en **Python** que facilitan las consultas a la API, la conversión de los datos a **DataFrames de Pandas** y su exportación a archivos **CSV**.
+**📝 Documentación de la API:** [Arclim API](#)
 
-### 📚 Estructura de la Extracción
-
-#### 🔹 Scripts Principales
+### 📚 Estructura de la Extracción (Scripts)
 
 **📌 codigos.py**  
-- Descarga los códigos de las capas geográficas y los indicadores climáticos disponibles, los cuales son necesarios para estructurar las consultas.  
-- Obtiene los atributos y entidades de la capa "comunas".  
+- Descarga los **códigos** de las **capas geográficas** y los **indicadores climáticos** disponibles, los cuales son necesarios para estructurar las consultas.  
+- Obtiene los **atributos** y entidades de la capa **"comunas"**.  
 
 **📌 funciones_extraccion.py**  
-- Contiene dos funciones para realizar consultas a la API y obtener datos climáticos de una entidad de alguna capa geográfica especificada, para un periodo de tiempo (año, estación, meses).  
-- Las funciones retornan diccionarios con los metadatos de la consulta y un archivo JSON con su información.  
+- Contiene dos funciones para realizar consultas a la API y obtener **datos climáticos** de una **entidad** de alguna **capa geográfica** especificada, para un **periodo de tiempo** (año, estación, meses).  
+- Las funciones retornan **diccionarios con los metadatos** de la consulta y un **archivo JSON** con su información.  
 
 **📌 convertir_a_df.py**  
 - Convierte los datos extraídos por las funciones de extracción en **DataFrames de Pandas** y los exporta a archivos **CSV**.  
 
 **📌 consultas.py**  
-- Ejecuta la extracción de datos específicos: temperatura media y precipitación acumulada para las distintas comunas de Chile.  
-
----
+- Ejecuta la extracción de datos específicos: **temperatura media** y **precipitación acumulada** para las distintas comunas de Chile.  
 
 ## 📊 Datos Extraídos
 
 ✅ **Códigos de referencia**  
-- Listado de códigos de capas geográficas e indicadores climáticos disponibles.  
+- 📋 Listado de códigos de **capas geográficas** e **indicadores climáticos** disponibles.  
 
 ✅ **Datos por comuna (desagregados por mes y año)**  
 - 🌡️ **Temperatura media**  
 - 🌧️ **Precipitación acumulada**  
 
 ✅ **Atributos de la capa "comunas"**  
-- Nombre de la comuna  
-- Provincia a la que pertenece  
-- Región a la que pertenece  
-
----
+- 📍 **Nombre de la comuna**  
+- 🏛️ **Provincia a la que pertenece**  
+- 🌎 **Región a la que pertenece**  
 
 ## 🛠️ Herramientas Utilizadas
 
