@@ -11,19 +11,20 @@ Tras la **extracción, limpieza y transformación** de los datos, se procederá 
 
 ## 🏷️ Etapas del Proyecto
 
-1️⃣ **Extracción de Datos (Etapa actual) ✅**  
+1️⃣ **Extracción de Datos ✅**  
 
   •	Obtención de datos climáticos desde la **API Arclim**.
 
   •	Conversión de datos a formatos estructurados (**CSV, DataFrames**).
 
-2️⃣ **Limpieza y Transformación de los Datos** 
+2️⃣ **Limpieza y Transformación de los Datos (Etapa actual)** 
 
 •	Eliminación de **inconsistencias** y **valores faltantes**.
 
 •	**Estandarización y estructuración** de los datos para su análisis.
 
 3️⃣ **Almacenamiento en Base de Datos**  
+
 •	Diseño e implementación de una **base de datos** para almacenar y gestionar los datos transformados.
 
 •	Carga eficiente de los datos en el sistema de almacenamiento.
