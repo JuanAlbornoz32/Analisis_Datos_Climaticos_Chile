@@ -57,11 +57,13 @@ Para **automatizar** el proceso de extracción, se desarrolló un conjunto de **
 - Obtiene los **atributos** y entidades de la capa **"comunas"**.  
 
 **📌 funciones_extraccion.py**  
-- Contiene dos funciones para realizar consultas a la API y obtener **datos climáticos** de una **entidad** de alguna **capa geográfica** especificada, para un **periodo de tiempo** (año, estación, meses).  
-- Las funciones retornan **diccionarios con los metadatos** de la consulta y un **archivo JSON** con su información.  
+- Contiene funciones para realizar consultas a la API de manera flexible, pudiendo especificar **entidad**, **capa geográfica**, **indicador climático** y **periodo de tiempo** del cual se necesite información.
+- Las funciones permiten realizar tanto **consultas individuales** como para **multiples entidades** de una capa geográfica. 
+- Las funciones retornan diccionarios, con los **metadatos** de la consulta y el **archivo JSON** con la información obtenida de la API.  
 
 **📌 convertir_a_df.py**  
-- Convierte los datos extraídos por las funciones de extracción en **DataFrames de Pandas** y los exporta a archivos **CSV**.  
+- Contiene funciones para convertir los datos obtenidos por las funciones de extracción en **DataFrames de Pandas** y exportarlos a archivos **CSV**.
+- Las funciones permiten seleccionar los **campos de información** que se requieren extraer de la **respuesta JSON**.  
 
 **📌 consultas.py**  
 - Ejecuta la extracción de datos específicos: **temperatura media** y **precipitación acumulada** para las distintas comunas de Chile.  
